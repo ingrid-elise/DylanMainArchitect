@@ -7,30 +7,48 @@
         <img :src="card" />
       </card>
     </carousel>
+
+    <ShortLine />
+    <div id="woodmansTreehouse">
+    <carouselTreehouse @next="next">
+      <card v-for="(woodmansTreehouseCard,index) in woodmansTreehouseCards" :key="woodmansTreehouseCard" :index="index" :visibleSlide="visibleSlide">
+        <img :src="woodmansTreehouseCard" />
+      </card>
+    </carouselTreehouse>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
+import ShortLine from "@/components/ShortLine.vue";
 import ProjectTitle from "@/components/ProjectTitle.vue";
 import Carousel from "@/components/Carousel.vue";
 import Card from "@/components/Card.vue"
+import CarouselTreehouse from "@/components/CarouselTreehouse.vue";
 
 export default {
   name: "Home",
   components: {
     Header,
+    ShortLine,
     ProjectTitle,
     Carousel,
-    Card    
+    Card,
+    CarouselTreehouse,    
   },
   data() {
     return {
       cards: [
-        'https://i.pinimg.com/originals/69/8b/6e/698b6e821c9d34010dce26e75edc8239.jpg',
-        'https://i.pinimg.com/originals/3c/2f/80/3c2f80274a94c160a48384abf5c3d9e9.jpg'        
-        
+        'https://live.staticflickr.com/65535/50643083596_3b80759c9a_k.jpg',
+        'https://live.staticflickr.com/65535/50642330843_d8d8944e19_k.jpg',
+        'https://live.staticflickr.com/65535/50643166677_6ca1707743_k.jpg',
+        'https://live.staticflickr.com/65535/50642333373_5662193cb0_k.jpg',
+        'https://live.staticflickr.com/65535/50642334363_86112d3164_k.jpg' 
+      ],
+      woodmansTreehouseCards: [
+        'https://live.staticflickr.com/65535/50642629413_ca9bba1f44_b.jpg',
       ],
       visibleSlide: 0,
     };
@@ -65,5 +83,9 @@ export default {
 img {
   height: 68vh;
   width: 55vw;
+}
+
+#woodmansTreehouse {
+  margin-top: 24vh;
 }
 </style>

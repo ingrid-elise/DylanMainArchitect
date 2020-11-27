@@ -20,29 +20,26 @@
             <p class="descHeading">Architect:</p>
             <p class="descHeading">Status:</p>
             <p class="descHeading">Project Team:</p>
-            <br />
             <p class="descHeading">Photographer:</p>
             <br />
             <p class="descHeading">Contractor:</p>
             <p class="descHeading">Contract Value:</p>
           </div>
           <div class="projectDescInfo">
-            <p class="descInfo">Artemis One</p>
-            <p class="descInfo">Horden Cherry Lee Architects</p>
-            <p class="descInfo">Completed Sept 2018</p>
-            <p class="descInfo">
-              BMCE as Structural Engineer<br />EDP as Services Engineer
-            </p>
-            <p class="descInfo">Dennis Gilbert Photography</p>
+            <p class="descInfo">Crafty Camping</p>
+            <p class="descInfo">Onform Architecture + BEaM</p>
+            <p class="descInfo">Completed July 2016</p>
+            <p class="descInfo">Ecos Maclean as Structural Engineer</p>
+            <p class="descInfo">Sandy Steele Perkins Photography</p>
             <br />
-            <p class="descInfo">FCM Holdings</p>
-            <p class="descInfo">GBP 1m</p>
+            <p class="descInfo">Guy Mallinson and master craftsmen</p>
+            <p class="descInfo">GBP 150,000</p>
           </div>
           </div>
         </div>
 
         <div id="address-1" v-if="!hover">
-            <p class="projectName">740 Fulham Rd, London</p>
+            <p class="projectName">Woodman's Treehouse, Dorset</p>
           <div class="line"></div>
         </div>
       </div>
