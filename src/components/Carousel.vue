@@ -1,13 +1,15 @@
 <template>
-  <div id="main-block">
+  <div class="main-block">
+
     <div id="card-and-desc">
+
       <div
         class="card-carousel"
         @mouseover="hover = true"
         @mouseleave="hover = false"
       >
         <slot></slot>
-        <button @click="next" class="next"></button>
+        <button @click="next" class="next" id="blackButton"></button>
       </div>
 
       <div id="project-info">
@@ -80,9 +82,15 @@ export default {
 .card-carousel {
   display: flex;
   flex-direction: row;
-  margin-top: 8vh;
+  margin-top: 9vh;
   position: absolute;
   right: 0;
+  height: 62vh;
+}
+
+#fulhamRdImgCards {
+  width: 55vw;
+  height: 62vh;   /* currently img does not have original height here, only way to make the img and black button be responsive to diff. screen sizes */
 }
 
 #project-info {
@@ -94,10 +102,10 @@ export default {
 
 .line {
   position: absolute;
-  width: 32vw;
+  width: 32.07vw;
   height: 0px;
   margin-left: 0vw;
-  border: 1px solid #000000;
+  border-bottom: 1px solid black;
 }
 
 .projectName {
@@ -111,20 +119,19 @@ export default {
 .projectName:after { 
   content: "";
   width: 0px;
-  height: 70vh;
-  border: 1px solid #000000;
+  height: 67vh;
+  border-right: 1px solid black; 
   position: absolute;
   margin-left: 32vw;
 }
 
 #address-1 {
-  margin-top: 20vh;
+  margin-top: 15.5vh;
 }
 
 .projectDescription {
-  padding-top: 52vh;
-  /* border-right: 1px solid #000000;
-  margin-right: 27.8vw; */
+  padding-top: 48vh;
+  margin-right: 20vw;
 }
 
 .flexboxLine{
@@ -135,8 +142,8 @@ export default {
 .verticalLine::after {
   content: "";
   width: 0px;
-  height: 48vh;
-  border: 1px solid #000000;
+  height: 44vh;
+  border-right: 1px solid black;
   position: absolute;
   margin-left: 32vw;
   margin-top: 4vh;
@@ -157,9 +164,9 @@ export default {
 }
 
 .projectDescInfo {
-  align-items: flex-end;
-  text-align: right;
-  width: 22vw;
+  align-items: flex-start;
+  text-align: left;
+  margin-left: 9vw;
 }
 
 .card-icon:hover + #description-1 {
@@ -174,7 +181,6 @@ button {
   background-color: black;
   color: white;
   border: none;
-  height: 68vh;
   width: 6vw;
 }
 button:focus,

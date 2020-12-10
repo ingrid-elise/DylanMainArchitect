@@ -13,10 +13,10 @@ export default {
 <style>
 #shortLine2 {
   position: absolute;
-  width: 116px;
+  width: 100px;
   height: 0px;
-  left: 37vw;
-  top: 127vh;
-  border: 7px solid #000000;
+  left: 53vw;
+  top: 115vh;
+  border: 5px solid #000000;
 }
 </style>

@@ -1,20 +1,23 @@
 <template>
   <div id="main-block">
     <div id="card-and-desc">
+    
+    <!-- Project Carousel -->
       <div
-        class="card-carousel"
+        class="card-carousel-treehouse"
         @mouseover="hover = true"
         @mouseleave="hover = false"
       >
         <slot></slot>
-        <button @click="next" class="next"></button>
+        <button @click="nextTreehouseImg" class="nextTreehouseImg"></button>
       </div>
 
-      <div id="project-info">
-        <div class="verticalLine" v-if="hover"></div>
-        <div id="description-1" class="projectDescription" v-if="hover">
-          <div class="line" id="projectLine"></div>
-          <div class="flexboxLine">
+      <!-- Project Info Text -->
+      <div id="project-info-treehouse">
+        <div class="verticalLine-treehouse" v-if="hover"></div>
+        <div id="description-1" class="projectDescription-treehouse" v-if="hover">
+          <div class="line-treehouse"></div>
+          <div class="flexboxLine-treehouse">
           <div class="projectDescHeading">
             <p class="descHeading">Client:</p>
             <p class="descHeading">Architect:</p>
@@ -25,7 +28,7 @@
             <p class="descHeading">Contractor:</p>
             <p class="descHeading">Contract Value:</p>
           </div>
-          <div class="projectDescInfo">
+          <div class="projectDescInfo-treehouse">
             <p class="descInfo">Crafty Camping</p>
             <p class="descInfo">Onform Architecture + BEaM</p>
             <p class="descInfo">Completed July 2016</p>
@@ -38,9 +41,9 @@
           </div>
         </div>
 
-        <div id="address-1" v-if="!hover">
-            <p class="projectName">Woodman's Treehouse, Dorset</p>
-          <div class="line"></div>
+        <div id="address-1-treehouse" v-if="!hover">
+            <p class="projectName-treehouse">Woodman's Treehouse, Dorset</p>
+          <div class="line-treehouse"></div>
         </div>
       </div>
     </div>
@@ -58,126 +61,99 @@ export default {
     next() {
       this.$emit("next");
     },
+    nextTreehouseImg(){
+        this.$emit("nextTreehouseImg");
+    }
   },
 };
 </script>
 
 <style >
-#main-block {
+/* #main-block {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-}
-
+} */
+/* 
 #card-and-desc {
   display: flex;
   flex-direction: row;
-}
+} */
 
-.card-carousel {
+.card-carousel-treehouse {
   display: flex;
   flex-direction: row;
-  margin-top: 8vh;
+  margin-top: 5vh;
   position: absolute;
   right: 0;
+  height: 80vh;
+}
+#woodmansTreehouseImgCards{
+  height: 80vh; 
+  width: 38vw; 
 }
 
-#project-info {
+#project-info-treehouse {
   display: flex;
   flex-direction: column;
   margin-left: 5vw;
-  width: 60vw;
+  width: 70vw;
 }
 
-.line {
+.line-treehouse {
   position: absolute;
-  width: 32vw;
+  width: 48.1vw;
   height: 0px;
   margin-left: 0vw;
-  border: 1px solid #000000;
+  border-bottom: 1px solid black;
 }
 
-.projectName {
+.projectName-treehouse {
   height: 32vh;
-  padding-top: 23.5vh;
+  padding-top: 23.7vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
 }
 
-.projectName:after { 
+.projectName-treehouse:after { 
   content: "";
   width: 0px;
-  height: 70vh;
-  border: 1px solid #000000;
+  height: 84vh;
+  border-right: 1px solid black; 
   position: absolute;
-  margin-left: 32vw;
+  margin-left: 48vw;
 }
 
-#address-1 {
-  margin-top: 20vh;
+#address-1-treehouse {
+  margin-top: 29vh;
 }
 
-.projectDescription {
+.projectDescription-treehouse {
   padding-top: 52vh;
-  /* border-right: 1px solid #000000;
-  margin-right: 27.8vw; */
-}
+  margin-right: 27.8vw;
+} 
 
-.flexboxLine{
+.flexboxLine-treehouse{
   display: flex;
   flex-direction: row;
 }
 
-.verticalLine::after {
+.verticalLine-treehouse::after {
   content: "";
   width: 0px;
-  height: 48vh;
-  border: 1px solid #000000;
+  height: 51vh;
+  border-right: 1px solid black;
   position: absolute;
-  margin-left: 32vw;
-  margin-top: 4vh;
-}
-
-.descHeading {
-  color: #969696;
-  font-weight: bold;
-}
-
-.projectDescHeading, .projectDescInfo {
+  margin-left: 48vw;
   margin-top: 1vh;
 }
 
-.descInfo,
-.projectName {
-  color: #393838;
+.projectDescInfo-treehouse {
+  align-items: flex-start;
+  text-align: left;
+  margin-top: 1vh;
+  margin-left: 15vw;
 }
 
-.projectDescInfo {
-  align-items: flex-end;
-  text-align: right;
-  width: 22vw;
-}
-
-.card-icon:hover + #description-1 {
-  display: block;
-}
-
-.card-icon:hover + #address-1 {
-  display: none;
-}
-
-button {
-  background-color: black;
-  color: white;
-  border: none;
-  height: 68vh;
-  width: 6vw;
-}
-button:focus,
-button:hover {
-  background-color: #393838;
-  outline: none;
-  cursor: pointer;
-}
 </style>

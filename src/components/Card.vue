@@ -12,9 +12,9 @@ export default {
 </script>
 
 <style >
-.card-icon {
+/* .card-icon {
     height: 50vw;
-    width: 43vw;
-}
+    width: auto;
+} */
 
 </style>

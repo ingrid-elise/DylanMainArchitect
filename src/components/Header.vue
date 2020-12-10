@@ -7,10 +7,9 @@
 
     <nav id="headerLinks">
         <div class="verticalLinkLine">
-        <router-link tag="li" class="routerLink" to="/whatido"
-          >what i do</router-link>
-        <router-link tag="li" class="routerLink" to="/workwithme"
-          >work with me</router-link>
+        <router-link tag="li" class="routerLink" to="/whatido">what i do</router-link>
+        <router-link tag="li" class="routerLink" to="/workwithme">work with me</router-link>
+        <router-link tag="li" class="routerLink" to="/howiwork">how i work</router-link>
           </div>
     </nav>
   </div>
@@ -76,9 +75,9 @@ li {
   content: "";
   position: absolute;
   width: 0px;
-  height: 32px;
-  left: 9.5vw;
+  height: 50px;
+  left: 10.5vw;
   top: 0.1vh;
-  border: 7px solid #000000;
+  border: 5px solid #000000;
 }
 </style>
