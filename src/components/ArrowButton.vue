@@ -16,11 +16,13 @@ export default {
   props: { arrowType: String }
 };
 
+
 </script>
 
 <style>
 .blackCol {
-  height: 35vw;
+  /* height: 35vw; */
+  height: auto;
   width: 100px;
   background-color: black;
   color: black;

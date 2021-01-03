@@ -48,19 +48,18 @@ export default {
   data() {
     return {
       cards: [
-        'https://live.staticflickr.com/65535/50663866581_1d87288f23_o.jpg',
-        'https://live.staticflickr.com/65535/50663140418_042d5362a9_o.jpg',
+        require('../assets/FulhamRd/FulhamRd.jpg'),
+        require('../assets/FulhamRd/FulhamRd2.jpg'),
+        require('../assets/FulhamRd/FulhamRd3.jpg'),
+        require('../assets/FulhamRd/FulhamRd4.jpg'),
+        require('../assets/FulhamRd/FulhamRd5.jpg')
       ],
       woodmansTreehouseCards: [
-        'https://live.staticflickr.com/65535/50642629413_ca9bba1f44_b.jpg',
-        'https://live.staticflickr.com/65535/50642631118_8023e3c165_b.jpg',
-        'https://live.staticflickr.com/65535/50643384371_7686edddfc_b.jpg',
-        'https://live.staticflickr.com/65535/50642632718_79f1cf0999_o.jpg',
-        'https://live.staticflickr.com/65535/50642633608_0f56dd3ca7_z.jpg',
-        'https://live.staticflickr.com/65535/50643467852_5385be391c_z.jpg',
-        'https://live.staticflickr.com/65535/50643387736_1d9869091d_z.jpg',
+        require('../assets/WoodmansTreehouse/WoodmansTreehouse.jpg'),
+        require('../assets/WoodmansTreehouse/WoodmansTreehouse2.jpg'),
+        require('../assets/WoodmansTreehouse/WoodmansTreehouse3.jpg')
       ],
-      visibleSlide: 0,
+      visibleSlide: 0, //this means in the beginning show me the first slide
     };
   },
   // need separate computed and methods for moving through slides as arrays have different amounts of cards
@@ -99,15 +98,13 @@ export default {
 .home {
   height: 90vh;
 }
-/* #fulhamRdImgCards{
-  height: auto;  
-  width: 55vw;  changes img height for fulham rd  carousel imgs
-} */
-/* changes img height for woodmans treehouse carousel imgs */
-/* #woodmansTreehouseImgCards{
-  height: 80vh;  
-} */
+
 #woodmansTreehouse {
   margin-top: 20vh;
+}
+
+/* changes height of Fulham Rd carousel img's */
+#fulhamRdImgCards { 
+  height: 62vh;
 }
 </style>

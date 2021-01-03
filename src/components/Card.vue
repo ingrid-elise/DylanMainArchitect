@@ -2,6 +2,8 @@
   <div class="card" v-show="visibleSlide === index"> 
     <slot></slot>
   </div>
+
+  
 </template>
 
 <script>
@@ -11,10 +13,6 @@ export default {
 };
 </script>
 
-<style >
-/* .card-icon {
-    height: 50vw;
-    width: auto;
-} */
+<style>
 
 </style>

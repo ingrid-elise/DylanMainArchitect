@@ -1,6 +1,9 @@
 <template>
 <div>
 
+      <Header />
+
+
   <div id="contactUsPage">
     <div id="contactUsText">
       <h2 class="contactUsHeading">how i can help you</h2>
@@ -19,16 +22,33 @@
 
     <div id="contactForm">
         <h2 id="contactFormTitle">book me</h2>
-        <form id="form" method="POST" action="https://formspree.io/f/mnqogdwd">
-        <label>Your Name:</label>
-        <input name="name" type="text">
-        <label>Your Email:</label>
-        <input name="email" type="email">
-        <label>Message:</label>
-        <textarea name="message" rows="5"></textarea>
+        <form id="form" method="POST" class="form" action="https://formspree.io/f/mnqogdwd">
+        <!-- Form Name Input -->
+        <label for="name" class="label-name">
+            <span class="content-name">Your Name:</span>
+        </label>
+        <input name="name" type="text" required>
+        <div class="shortLineBelow"></div>
+
+        <!-- Form Email Input -->
+        <label for="email" class="label-name">
+            <span class="content-email">Your Email:</span>
+        </label>
+        <input name="email" type="email" required>
+        <div class="shortLineBelow"></div>
+
+        <!-- Form Message Input -->
+        <label for="message" class="label-name">
+            <span class="content-email">Message:</span>
+        </label>
+        <textarea name="message" rows="6"></textarea>
+        <div class="shortLineBelow"></div>
+
+        <!-- Form Submit Button -->
         <div id="buttonDiv">
-        <button id="contactUsButton" type="submit" v-on:click="submit">Submit</button>
+        <button id="contactUsButton" type="submit" v-on:click="submit">SUBMIT</button>
         </div>
+
       </form>
     </div>
 
@@ -38,11 +58,12 @@
 </template>
 
 <script>
+import Header from "@/components/Header.vue";
 
 export default {
     name: "HowIWork",
     components: {
-        
+        Header,
     },
     methods: {
         submit(){
@@ -89,13 +110,13 @@ export default {
     margin-top: 1vh;
 }
 
+/* form  */
+
 #form {
     display: flex;
     flex-direction: column;
     width: 30vw;
     height: 40vh;
-    /* border: 1px solid grey;
-    border-radius: 6px; */
     text-align: left;
     padding:10px;
     margin-top: 3vh;
@@ -105,33 +126,67 @@ input, textarea {
     padding-top: 8px;
     padding-bottom: 8px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    color: #969696;
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+}
+
+.shortLineBelow {
+  width: 100px;
+  height: 0px;
+  border: 5px solid #000000;
+}
+
+
+
+input:focus, textarea:focus {
+    border-color: lightgrey;
+    /* border-color: pink;
+    transform: translateX(100%);
+    transition: transform 0.3s ease; */
+}
+
+.content-name::after {
+    content: "";
+    /* border-bottom: 3px solid #969696; */
+    border-bottom: 3px solid blue;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.content-name {
+    transition: all 0.3s ease;
+}
+
+.label-name { 
+    padding-top: 10px;
+}
+
+.form input:focus + .label-name .content-name,
+.form input:valid + .label-name .content-name {
+    transform: translateY(-150%);
+    font-size: 14px;
+    /* color: #969696; */
+    color: orange;
+}
+
+.form input:focus + .label-name::after, .form input:valid + .label-name::after {
+  transform: translateX(0%);
 }
 
 #contactUsButton {
     width: 10vw;
     padding: 10px 45px;
-    background-color: #2c3e50;
     border: none;
-    color: white;
     cursor: pointer;
-    border-radius: 6px;
-    margin-top: 10px;
+    margin-top: 62px;
 }
 
 #buttonDiv {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* input:focus, textarea:focus {
-    background-color: darkgrey;
-} */
-
-input:hover, textarea:hover {
-    background-color: lightgrey;
-    /* border: 1px black solid; */
-    border-radius: 2px;
 }
 </style>

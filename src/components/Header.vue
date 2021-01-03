@@ -6,11 +6,11 @@
     </div>
 
     <nav id="headerLinks">
-        <div class="verticalLinkLine">
+        <div class="verticalLinkLine"></div>
         <router-link tag="li" class="routerLink" to="/whatido">what i do</router-link>
-        <router-link tag="li" class="routerLink" to="/workwithme">work with me</router-link>
-        <router-link tag="li" class="routerLink" to="/howiwork">how i work</router-link>
-          </div>
+        <router-link tag="li" class="routerLink" to="/howiwork">my process</router-link>
+        <router-link tag="li" class="routerLink" to="/workwithme">work together</router-link>
+          
     </nav>
   </div>
 </template>
@@ -52,7 +52,7 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 50px;
-  margin-right: 100px;
+  margin-right: 80px;
   text-align: right;
   position: absolute;
   right: 0;
@@ -66,9 +66,12 @@ li {
 }
 .routerLink {
   display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 30px;
   text-align: right;
+}
+
+.routerLink:focus {
+  font-weight: bold;
 }
 
 .verticalLinkLine::after {
@@ -76,7 +79,7 @@ li {
   position: absolute;
   width: 0px;
   height: 50px;
-  left: 10.5vw;
+  left: 7vw;
   top: 0.1vh;
   border: 5px solid #000000;
 }

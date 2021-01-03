@@ -85,12 +85,15 @@ export default {
   margin-top: 9vh;
   position: absolute;
   right: 0;
-  height: 62vh;
+  height: auto;
 }
 
 #fulhamRdImgCards {
   width: 55vw;
-  height: 62vh;   /* currently img does not have original height here, only way to make the img and black button be responsive to diff. screen sizes */
+  /* width: 880px; */
+  height: auto; 
+  /* height: 62vh;   */
+   /* currently img does not have original height here, only way to make the img and black button be responsive to diff. screen sizes */
 }
 
 #project-info {
@@ -182,6 +185,7 @@ button {
   color: white;
   border: none;
   width: 6vw;
+  margin-bottom: 0.4vw;
 }
 button:focus,
 button:hover {

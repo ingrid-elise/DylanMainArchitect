@@ -69,17 +69,6 @@ export default {
 </script>
 
 <style >
-/* #main-block {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-} */
-/* 
-#card-and-desc {
-  display: flex;
-  flex-direction: row;
-} */
-
 .card-carousel-treehouse {
   display: flex;
   flex-direction: row;
