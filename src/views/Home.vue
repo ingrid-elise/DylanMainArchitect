@@ -2,26 +2,35 @@
   <div class="home">
     <Header />
     <ProjectTitle />
+
   <!-- Carousel for Fulham Rd -->
-    <div id="fulhamRd">
-    <carousel @next="next">
+    <div id="fulhamRd" class="projectBlock">
+     <carousel @next="next" >
       <card v-for="(card,index) in cards" :key="card" :index="index" :visibleSlide="visibleSlide">        
-        <img :src="card" id="fulhamRdImgCards" />
+        <img :src="card" id="fulhamRdImgCards" class="projectImgCards"/>
       </card>
     </carousel>
     </div>
 
   <!-- Carousel for Treehouse -->
     <ShortLine />
-    <div id="woodmansTreehouse">
+    <div id="woodmansTreehouse" class="projectBlock">
     <carouselTreehouse @nextTreehouseImg="nextTreehouseImg">
-      <card v-for="(woodmansTreehouseCard,index) in woodmansTreehouseCards" :key="woodmansTreehouseCard" :index="index" :visibleSlide="visibleSlide">
-        <img :src="woodmansTreehouseCard" id="woodmansTreehouseImgCards" />
-      </card>
+      <cardTreehouse v-for="(woodmansTreehouseCard,index) in woodmansTreehouseCards" :key="woodmansTreehouseCard" :index="index" :visibleSlideTreehouse="visibleSlideTreehouse">
+        <img :src="woodmansTreehouseCard" id="woodmansTreehouseImgCards" class="projectImgCards"/>
+      </cardTreehouse>
     </carouselTreehouse>
     </div>
 
-  <!-- Carousel for  -->
+  <!-- Carousel for ShellCove  -->
+    <ShortLine />
+    <div id="shellCove" class="projectBlock">
+      <carouselShellCove @nextShellCoveImg="nextShellCoveImg">
+        <cardShellCove v-for="(shellCoveCard,index) in shellCoveCards" :key="shellCoveCard" :index="index" :visibleSlideShellCove="visibleSlideShellCove">
+          <img :src="shellCoveCard" id="shellCoveImgCards" class="projectImgCards"/>
+          </cardShellCove>
+      </carouselShellCove>
+    </div>
 
   </div>
 </template>
@@ -31,9 +40,14 @@
 import Header from "@/components/Header.vue";
 import ShortLine from "@/components/ShortLine.vue";
 import ProjectTitle from "@/components/ProjectTitle.vue";
+
+import Card from "@/components/Card.vue";
+import CardTreehouse from "@/components/CardTreehouse.vue";
+import CardShellCove from "@/components/CardShellCove.vue";
+
 import Carousel from "@/components/Carousel.vue";
-import Card from "@/components/Card.vue"
 import CarouselTreehouse from "@/components/CarouselTreehouse.vue";
+import CarouselShellCove from "@/components/CarouselShellCove.vue";
 
 export default {
   name: "Home",
@@ -41,25 +55,39 @@ export default {
     Header,
     ShortLine,
     ProjectTitle,
-    Carousel,
+
     Card,
-    CarouselTreehouse,    
+    CardTreehouse,
+    CardShellCove,
+
+    Carousel,
+    CarouselTreehouse,
+    CarouselShellCove,    
   },
   data() {
-    return {
+    return {  
       cards: [
-        require('../assets/FulhamRd/FulhamRd.jpg'),
-        require('../assets/FulhamRd/FulhamRd2.jpg'),
-        require('../assets/FulhamRd/FulhamRd3.jpg'),
-        require('../assets/FulhamRd/FulhamRd4.jpg'),
-        require('../assets/FulhamRd/FulhamRd5.jpg')
+        require('../assets/FulhamRd/Architect_Fulham Road_2400x1600px_01.jpg'),
+        require('../assets/FulhamRd/Architect_Fulham Road_2400x1600px_02.jpg'),
+        require('../assets/FulhamRd/Architect_Fulham Road_2400x1600px_03.jpg'),
+        require('../assets/FulhamRd/Architect_Fulham Road_2400x1600px_04.jpg'),
+        require('../assets/FulhamRd/Architect_Fulham Road_2400x1600px_05.jpg')
       ],
       woodmansTreehouseCards: [
-        require('../assets/WoodmansTreehouse/WoodmansTreehouse.jpg'),
-        require('../assets/WoodmansTreehouse/WoodmansTreehouse2.jpg'),
-        require('../assets/WoodmansTreehouse/WoodmansTreehouse3.jpg')
+        require('../assets/WoodmansTreehouse/Architect_Wood Treehouse_2400x1600px_01.jpg'),
+        require('../assets/WoodmansTreehouse/Architect_Wood Treehouse_2400x1600px_03.jpg'),
+        require('../assets/WoodmansTreehouse/Architect_Wood Treehouse_2400x1600px_04.jpg'),
+        require('../assets/WoodmansTreehouse/Architect_Wood Treehouse_2400x1600px_05.jpg'),
+        require('../assets/WoodmansTreehouse/Architect_Wood Treehouse_2400x1600px_06.jpg'),
+        require('../assets/WoodmansTreehouse/Architect_Wood Treehouse_2400x1600px_07.jpg')
+      ],
+      shellCoveCards: [
+        require('../assets/ShellCove/Architect_ShellCove_2400x1600px_1.jpg'),
+        require('../assets/ShellCove/Architect_ShellCove_2400x1600px_2.jpg')
       ],
       visibleSlide: 0, //this means in the beginning show me the first slide
+      visibleSlideTreehouse: 0,
+      visibleSlideShellCove: 0,
     };
   },
   // need separate computed and methods for moving through slides as arrays have different amounts of cards
@@ -69,6 +97,9 @@ export default {
     },
     slidesLenTreehouse(){
       return this.woodmansTreehouseCards.length;
+    },
+    slidesLenShellCove(){
+      return this.shellCoveCards.length;
     }
   },
   methods: {
@@ -80,13 +111,20 @@ export default {
       }
     },
     nextTreehouseImg() {
-      if (this.visibleSlide >= this.slidesLenTreehouse - 1) {
-        this.visibleSlide = 0;
+      if (this.visibleSlideTreehouse >= this.slidesLenTreehouse - 1) {
+        this.visibleSlideTreehouse = 0;
       } else {
-        this.visibleSlide++;
+        this.visibleSlideTreehouse++;
+      } 
+    },
+    nextShellCoveImg(){
+      if (this.visibleSlideShellCove >= this.slidesLenShellCove - 1) {
+        this.visibleSlideShellCove = 0;
+      } else {
+        this.visibleSlideShellCove++;
       } 
     }
-  }
+  },  
 };
 </script>
 
@@ -96,15 +134,57 @@ export default {
   padding: 0;
 }
 .home {
-  height: 90vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.projectBlock {
+  width: 100%;
+}
+.projectImgCards {
+  height: 68vh; /* changes height of project carousel img's */
+  width: auto;
+}
+@media (max-width: 1500px) { /* 19" Desktop */
+.projectImgCards {
+  height: 58vh;
+  width: auto;
+}
 }
 
-#woodmansTreehouse {
-  margin-top: 20vh;
+@media (max-width: 1400px) { /* 15" Notebook */
+.projectImgCards {
+  height: 64vh;
+  width: auto;
+}
 }
 
-/* changes height of Fulham Rd carousel img's */
-#fulhamRdImgCards { 
-  height: 62vh;
+@media (max-width: 1300px) { /* 13" Notebook */
+.projectImgCards {
+  height: 60vh;
+  width: auto;
 }
+}
+
+@media (max-width: 1100px) { /* 12" Netbook */
+.projectImgCards {
+  height: 48vh;
+  width: auto;
+}
+}
+
+@media (max-width: 500px) { /* Mobile */
+.projectImgCards {
+  height: 30vh;
+  width: auto;
+  float: right;
+}
+#shortLine2 {
+  display: none;
+}
+.projectBlock {
+  padding: 1rem 0rem;
+}
+}
+
 </style>

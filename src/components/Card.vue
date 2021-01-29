@@ -2,8 +2,6 @@
   <div class="card" v-show="visibleSlide === index"> 
     <slot></slot>
   </div>
-
-  
 </template>
 
 <script>

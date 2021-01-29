@@ -1,8 +1,9 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import WorkWithMe from "../views/WorkWithMe.vue";
-import HowIWork from "../views/HowIWork.vue";
+import MyProcess from "../views/MyProcess.vue";
+import WorkTogether from "../views/WorkTogether.vue";
+import WhatIDo from "../views/WhatIDo.vue";
 
 Vue.use(VueRouter);
 
@@ -22,14 +23,14 @@ const routes = [
       import(/* webpackChunkName: "whatido" */ "../views/WhatIDo.vue")
   },
   {
-    path: "/workwithme",
-    name: "WorkWithMe",
-    component: WorkWithMe
+    path: "/myprocess",
+    name: "MyProcess",
+    component: MyProcess
   },
   {
-    path: "/howiwork",
-    name: "HowIWork",
-    component: HowIWork
+    path: "/worktogether",
+    name: "WorkTogether",
+    component: WorkTogether
   },
   
 ];

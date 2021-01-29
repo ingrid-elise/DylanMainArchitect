@@ -12,11 +12,11 @@ export default {
 
 <style>
 #shortLine2 {
-  position: absolute;
-  width: 100px;
+  width: 116px;
   height: 0px;
-  left: 53vw;
-  top: 115vh;
+  margin-left: 37.6vw;
+  margin-top: 20vh;
   border: 5px solid #000000;
 }
 </style>
+
