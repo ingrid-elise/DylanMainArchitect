@@ -3,9 +3,8 @@
     <div id="card-and-desc">
 
       <div id="project-info">
-        <div class="verticalLine" v-if="hover"></div>
         <div id="description-1" class="projectDescription" v-if="hover">
-          <div class="line" id="projectLine"></div>
+          <hr />
           <div class="flexboxLine">
           <div class="projectDescHeading">
             <p class="descHeading">Client:</p>
@@ -35,7 +34,7 @@
 
         <div id="address-1" v-if="!hover">
             <p class="projectName">740 Fulham Rd, London</p>
-          <div class="line"></div>
+            <hr />
           
           <div class="linesMob">
           <div class="shortLineProjectNameMobile"></div>
@@ -48,7 +47,9 @@
         class="card-carousel"
         @mouseover="hover = true"
         @mouseleave="hover = false"
-      >
+      > 
+      <div class="verticalLine" v-if="!hover"></div>
+      <div class="verticalLineHover" v-if="hover"></div>
         <slot></slot>
         <button @click="next" class="next" id="blackButton">
           <img src="../assets/White Forward Button icon.png" alt="WhiteArrowButton" id="whiteArrowButton" :style="styleForArrow">
@@ -65,7 +66,7 @@ export default {
     return {
       hover: false,
       styleForArrow: {
-        width: '4vw',
+        width: '3vw',
       }
     };
   },
@@ -82,122 +83,110 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  width: 100vw;
 }
-
 #card-and-desc {
   display: flex;
   flex-direction: row;
+  float: right;
+  width: 100vw;
+  padding-bottom: 10vh; /* adds padding between projects */
 }
-
 .card-carousel {
   display: flex;
   flex-direction: row;
   margin-top: 3vh;
-  margin-left: 3vw;
-  width: 60vw;   /* fixed the img resizing problem w this, gave the entire flex box a width so the img stays within this */
+  /* margin-left: 3vw; */
+  width: 58vw;   /* fixed the img resizing problem w this, gave the entire flex box a width so the img stays within this */
   right: 0;
-  height: auto;
+  float: right;
 }
 #project-info {
   display: flex;
   flex-direction: column;
-  margin-left: 6vw;
-  width: 100vw;
+  margin-left: 5vw;
+  width: 35vw; 
+  margin-right: 2vw;
   padding-bottom: 0vh;
 }
-
-.line {
-  position: absolute;
-  width: 31.7vw;
-  height: 0px;
-  margin-left: 0vw;
-  border-bottom: 1px solid black;
-}
-
 .projectName {
   height: 32vh;
-  padding-top: 28.4vh;
+  padding-top: 27.4vh; /* changed from 28 to bring text up */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  font-size: 1.1rem;
 }
-
-.projectName:after { 
+.verticalLine { /* Long vertical line*/
   content: "";
   width: 0px;
-  height: 71.5vh;
+  height: 71vh;
   border-right: 1px solid black; 
   position: absolute;
-  margin-left: 31.65vw;  /* changed from 32.65 */
+  margin-left: -2vw;
+  margin-top: -3vh;
 }
-
+.verticalLineHover { /* Short vertical line*/
+  content: "";
+  width: 0px;
+  height: 49.3vh;
+  border-right: 1px solid black; 
+  position: absolute;
+  margin-left: -2vw;
+  margin-top: -3vh;
+}
+hr { /* Line below project name and above project */
+  border: 0;
+  height: 1px;
+  background-color: black;
+  margin-top: 1vh; /* added so could bring project address up / create more */
+}
 #address-1 {
   margin-top: 10.5vh;
+  width: 35vw; 
 }
-
 .projectDescription {
-  padding-top: 30vh;
-  margin-right: 6vw; 
-  /* width: 31.7vw; */
+  padding-top: 29vh;
+  width: 35vw;
 }
-
 .flexboxLine{
   display: flex;
   flex-direction: row;
 }
-
-.verticalLine::after { 
-  content: "";
-  width: 0px;
-  height: 50.3vh; 
-  border-right: 1px solid black;
-  position: absolute;
-  margin-left: 31.65vw;
-}
-
 .descHeading {
   color: #969696;
   font-weight: bold;
 }
-
 .projectDescHeading, .projectDescInfo {
   margin-top: 1vh;
 }
-
 .descInfo,
 .projectName {
   color: #393838;
 }
-
 .projectDescInfo {
   align-items: flex-start;
   text-align: left;
   margin-left: 3vw; /* this was 6vw, changed so when screen is smaller */
-
 }
 .card-icon:hover + #description-1 {
   display: block;
 }
-
 #description-1 {
-  margin-top: 20.2vh;  /* change this to adjust movement of treehouse carousel */
+  margin-top: 19.2vh;  /* change this to adjust movement of treehouse carousel */
 }
-
 .card-icon:hover + #address-1 {
   display: none;
 }
-
 button {
   background-color: black;
   color: white;
   border: none;
-  width: 6vw;
+  width: 5vw;
 }
-
 #blackButton {
   height: 68vh;
 }
-
 button:focus,
 button:hover {
   outline: none;
@@ -208,58 +197,36 @@ button:hover {
 #blackButton {
   height: 58vh;
 }
-.projectName:after { 
-  content: "";
-  width: 0px;
-  height: 61vh; /* adjusted */
-  border-right: 1px solid black; 
-  position: absolute;
-  margin-left: 31.65vw;
-}
 #address-1 {
   margin-top: 0.5vh;
 }
 .projectDescription {
   padding-top: 21vh;
-  margin-right: 6vw; 
+  width: 35vw;
 }
-.verticalLine::after { 
-  content: "";
-  width: 0px;
-  height: 41.3vh; 
-  border-right: 1px solid black;
-  position: absolute;
-  margin-left: 31.65vw;
+.verticalLine { /* Long vertical line*/
+  height: 61vh;
 }
-
+.verticalLineHover { /* Short vertical line*/
+  height: 41.3vh;
+}
 }
 
 @media (max-width: 1400px) { /* 15" Notebook */
 #blackButton {
   height: 64vh;
 }
-.projectName:after { 
-  content: "";
-  width: 0px;
-  height: 67vh; /* adjusted */
-  border-right: 1px solid black; 
-  position: absolute;
-  margin-left: 31.65vw;
-}
 #address-1 {
   margin-top: 6.5vh;
 }
 .projectDescription {
   padding-top: 25vh;
-  margin-right: 6vw; 
 }
-.verticalLine::after { 
-  content: "";
-  width: 0px;
-  height: 45.3vh; 
-  border-right: 1px solid black;
-  position: absolute;
-  margin-left: 31.65vw;
+.verticalLine { /* Long vertical line*/
+  height: 67vh;
+}
+.verticalLineHover { /* Short vertical line*/
+  height: 45.3vh;
 }
 }
 
@@ -267,28 +234,17 @@ button:hover {
 #blackButton {
   height: 60vh;
 }
-.projectName:after { 
-  content: "";
-  width: 0px;
-  height: 63vh; /* adjusted */
-  border-right: 1px solid black; 
-  position: absolute;
-  margin-left: 31.65vw;
-}
 #address-1 {
   margin-top: 2.5vh;
 }
 .projectDescription {
   padding-top: 16vh;
-  margin-right: 6vw; 
 }
-.verticalLine::after { 
-  content: "";
-  width: 0px;
-  height: 36.3vh; 
-  border-right: 1px solid black;
-  position: absolute;
-  margin-left: 31.65vw;
+.verticalLine { /* Long vertical line*/
+  height: 63vh;
+}
+.verticalLineHover { /* Short vertical line*/
+  height: 36.3vh;
 }
 }
 
@@ -303,29 +259,18 @@ button:hover {
   flex-direction: column;
   justify-content: flex-end;
 }
-.projectName:after { 
-  content: "";
-  width: 0px;
-  height: 52vh; /* adjusted */
-  border-right: 1px solid black; 
-  position: absolute;
-  margin-left: 31.6vw;
-}
 #address-1 {
   margin-top: 0vh;
 }
 .projectDescription {
   padding-top: 8vh;
-  margin-right: 6vw; 
   font-size: 12px;
 }
-.verticalLine::after { 
-  content: "";
-  width: 0px;
-  height: 28.3vh; 
-  border-right: 1px solid black;
-  position: absolute;
-  margin-left: 31.6vw;
+.verticalLine { /* Long vertical line*/
+  height: 51vh;
+}
+.verticalLineHover { /* Short vertical line*/
+  height: 28.3vh;
 }
 }
 
@@ -339,8 +284,10 @@ button:hover {
 .projectName:after { 
   display: none;
 }
+hr {
+  display: none;
+}
   .card-carousel {
-  /* margin-left: 10vw; */
   margin-left: 0vw;
   margin-top: 0px;
   width: 100vw;
@@ -348,12 +295,14 @@ button:hover {
 #card-and-desc {
   display: flex;
   flex-direction: column-reverse;
+  padding-bottom: 0;
 }
 #project-info {
   display: flex;
   flex-direction: column;
   margin-left: 5vw;
   width: 90vw;
+  margin-top: 2vh;
 }
  .card-carousel #project-info {
    clear: both;
@@ -368,6 +317,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  width: 100vw;
 }
 #blackButton {
   height: 30vh;
@@ -382,6 +332,7 @@ button {
   padding-top: 0vh;
   margin-top: 0vh;
   font-size: 14px;
+  width: 100vw;
 }
 #description-1 {
   margin-top: 1vh;

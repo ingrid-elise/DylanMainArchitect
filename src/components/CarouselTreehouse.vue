@@ -4,9 +4,10 @@
 
       <!-- Project Info Text -->
       <div id="project-info">
-         <div class="verticalLine" v-if="hover"></div> 
+         <!-- <div class="verticalLine" v-if="hover"></div>  -->
         <div id="description-1" class="projectDescription" v-if="hover">
-          <div class="line"></div>
+          <!-- <div class="line"></div> -->
+          <hr />
           <div class="flexboxLine">
           <div class="projectDescHeading">
             <p class="descHeading">Client:</p>
@@ -33,7 +34,8 @@
 
          <div id="address-1" v-if="!hover">
             <p class="projectName">Woodman's Treehouse, Dorset</p>
-          <div class="line"></div>
+            <hr />
+          <!-- <div class="line"></div> -->
 
           <div class="longLineProjectNameMobile"></div>
           <div class="shortLineProjectNameMobile"></div>
@@ -46,6 +48,8 @@
         @mouseover="hover = true"
         @mouseleave="hover = false"
       >
+      <div class="verticalLine" v-if="!hover"></div>
+      <div class="verticalLineHover" v-if="hover"></div>
         <slot></slot> 
         <button @click="nextTreehouseImg" class="next" id="blackButton">
           <img src="../assets/White Forward Button icon.png" alt="WhiteArrowButton" id="whiteArrowButton" :style="styleForArrow">
@@ -63,7 +67,7 @@ export default {
     return {
       hover: false,
       styleForArrow: {
-        width: '4vw',
+        width: '3vw',
       }
     };
   },
@@ -79,7 +83,9 @@ export default {
 #card-and-desc-treehouse {
   display: flex;
   flex-direction: row;
-  width:100vw;
+  width: 100vw;
+  float: right;
+  padding-bottom: 10vh; /* adds padding between projects */
 }
 
 @media (max-width: 500px) { /* Mobile */

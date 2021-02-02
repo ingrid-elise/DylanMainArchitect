@@ -4,9 +4,8 @@
 
       <!-- Project Info Text -->
       <div id="project-info">
-        <div class="verticalLine" v-if="hover"></div>
         <div id="description-1" class="projectDescription" v-if="hover">
-          <div class="line"></div>
+            <hr />
           <div class="flexboxLine">
           <div class="projectDescHeading">
             <p class="descHeading">Client:</p>
@@ -33,7 +32,7 @@
 
         <div id="address-1" v-if="!hover">
             <p class="projectName">Shell Cove</p>
-          <div class="line"></div>
+          <hr />
 
           <div class="longLineProjectNameMobile"></div>
           <div class="shortLineProjectNameMobile"></div>
@@ -46,6 +45,8 @@
         @mouseover="hover = true"
         @mouseleave="hover = false"
       >
+      <div class="verticalLine" v-if="!hover"></div>
+      <div class="verticalLineHover" v-if="hover"></div>
         <slot></slot> 
         <button @click="nextShellCoveImg" class="next" id="blackButton">
           <img src="../assets/White Forward Button icon.png" alt="WhiteArrowButton" id="whiteArrowButton" :style="styleForArrow">
@@ -63,7 +64,7 @@ export default {
     return {
       hover: false,
       styleForArrow: {
-        width: '4vw',
+        width: '3vw',
       }
     };
   },
@@ -80,20 +81,11 @@ export default {
   display: flex;
   flex-direction: row;
   width: 100vw;
+  float: right;
+  padding-bottom: 10vh; /* adds padding between projects */
 }
+
 @media (max-width: 500px) { /* Mobile */
-  /* .line-treehouse {
-  display: none;
-}
-.verticalLine-treehouse::after {
-  display: none;
-}
-.projectName-treehouse:after { 
-  display: none;
-}
-.nextTreehouseImg{
-  height: 30vh;
-} */
 #address-1 {
   margin-top: 0vh;
   margin-bottom: 5vh;

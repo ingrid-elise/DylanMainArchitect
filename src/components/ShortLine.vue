@@ -14,7 +14,7 @@ export default {
 #shortLine2 {
   width: 116px;
   height: 0px;
-  margin-left: 37.6vw;
+  margin-left: 40vw;
   margin-top: 20vh;
   border: 5px solid #000000;
 }

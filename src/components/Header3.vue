@@ -54,7 +54,7 @@ export default {
   display: flex;
   flex-direction: column;
   margin-top: 30px;
-  margin-right: 7vw;
+  margin-right: 6vw;
   margin-bottom: 20px;
   text-align: right;
   position: absolute;

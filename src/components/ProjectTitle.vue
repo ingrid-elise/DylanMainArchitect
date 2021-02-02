@@ -12,7 +12,7 @@
 <style>
 #projectsTitle {
   display: flex;
-  margin-left: 6vw;
+  margin-left: 5vw;
   margin-top: 11vh;
   color: black;
   letter-spacing: 7px;
@@ -20,7 +20,7 @@
 #shortLine {
   width: 116px;
   height: 0px;
-  margin-left: 37.6vw;
+  margin-left: 40vw;
   border: 5px solid #000000;
 }
 

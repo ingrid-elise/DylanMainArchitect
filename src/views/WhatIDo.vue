@@ -26,7 +26,7 @@
       </p>
     </div>
     <div id="theWayIWork">
-      <h1>what inspires us,</h1>
+      <h1 id="titlePaddingTop">what inspires us,</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
       </p>
@@ -117,7 +117,12 @@ export default {
   width: 90vw;
   padding-top: 4vh;
 }
-
+h1 {
+  padding-bottom: 4vh;
+}
+#titlePaddingTop {
+  padding-top: 4vh;
+}
 #aboutMe {
   width: 30vw;
 }

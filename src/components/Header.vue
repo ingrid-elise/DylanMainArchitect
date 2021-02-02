@@ -78,7 +78,7 @@ body {
   flex-direction: row;
   align-items: baseline;
   margin-top: 22px; /* changed from 30px */
-  padding-left: 6vw;/* changed from margin */
+  padding-left: 5vw;/* changed from margin */
 }
 #mainTitle {
   color: black;
@@ -86,7 +86,7 @@ body {
 }
 #mainTitleTwo {
   color: #969696;
-  margin-left: 50px;
+  margin-left: 2vw;
   font-size: 18px;
   font-weight: 400;
 }
@@ -102,7 +102,7 @@ body {
   text-align: right;
   right: 0;
   position: absolute;
-  margin-right: 7vw;
+  margin-right: 6vw;
 
 }
 #linkFlexBox {

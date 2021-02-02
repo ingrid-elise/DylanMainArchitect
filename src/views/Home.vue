@@ -32,6 +32,7 @@
       </carouselShellCove>
     </div>
 
+    <Footer />
   </div>
 </template>
 
@@ -40,6 +41,7 @@
 import Header from "@/components/Header.vue";
 import ShortLine from "@/components/ShortLine.vue";
 import ProjectTitle from "@/components/ProjectTitle.vue";
+import Footer from "@/components/Footer.vue"
 
 import Card from "@/components/Card.vue";
 import CardTreehouse from "@/components/CardTreehouse.vue";
@@ -55,6 +57,7 @@ export default {
     Header,
     ShortLine,
     ProjectTitle,
+    Footer,
 
     Card,
     CardTreehouse,
@@ -140,6 +143,7 @@ export default {
 }
 .projectBlock {
   width: 100%;
+  display: inline-block;
 }
 .projectImgCards {
   height: 68vh; /* changes height of project carousel img's */
