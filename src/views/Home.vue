@@ -24,7 +24,7 @@
 
   <!-- Carousel for ShellCove  -->
     <ShortLine />
-    <div id="shellCove" class="projectBlock" v-scrollanimation>
+    <div id="shellCove" class="projectBlock" v-scrollanimation><ScrollAnimation />
       <carouselShellCove @nextShellCoveImg="nextShellCoveImg">
         <cardShellCove v-for="(shellCoveCard,index) in shellCoveCards" :key="shellCoveCard" :index="index" :visibleSlideShellCove="visibleSlideShellCove">
           <img :src="shellCoveCard" id="shellCoveImgCards" class="projectImgCards"/>
@@ -67,9 +67,7 @@ export default {
 
     Carousel,
     CarouselTreehouse,
-    CarouselShellCove,    
-
-    ScrollAnimation,
+    CarouselShellCove,
 
   },
   data() {
