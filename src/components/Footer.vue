@@ -2,7 +2,7 @@
   <div>
       <footer class="footer">
           <p> this is a footer</p>
-          <p> nice one </p> 
+          
       </footer>
   </div>
 </template>
