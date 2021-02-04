@@ -51,7 +51,7 @@ import Carousel from "@/components/Carousel.vue";
 import CarouselTreehouse from "@/components/CarouselTreehouse.vue";
 import CarouselShellCove from "@/components/CarouselShellCove.vue";
 
-// import scrollanimation from '@/directives/scrollanimation.js';
+import scrollanimation from '@/directives/scrollanimation.js';
 
 export default {
   name: "Home",
@@ -69,7 +69,7 @@ export default {
     CarouselTreehouse,
     CarouselShellCove,
 
-    // scrollanimation,
+    scrollanimation,
 
   },
   data() {
