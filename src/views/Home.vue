@@ -14,7 +14,7 @@
 
   <!-- Carousel for Treehouse -->
     <ShortLine />
-    <div id="woodmansTreehouse" class="projectBlock" v-scrollanimation>
+    <div id="woodmansTreehouse" class="projectBlock" v-ScrollAnimation>
     <carouselTreehouse @nextTreehouseImg="nextTreehouseImg">
       <cardTreehouse v-for="(woodmansTreehouseCard,index) in woodmansTreehouseCards" :key="woodmansTreehouseCard" :index="index" :visibleSlideTreehouse="visibleSlideTreehouse">
         <img :src="woodmansTreehouseCard" id="woodmansTreehouseImgCards" class="projectImgCards"/>
@@ -24,7 +24,7 @@
 
   <!-- Carousel for ShellCove  -->
     <ShortLine />
-    <div id="shellCove" class="projectBlock" v-scrollanimation><ScrollAnimation />
+    <div id="shellCove" class="projectBlock" v-ScrollAnimation>
       <carouselShellCove @nextShellCoveImg="nextShellCoveImg">
         <cardShellCove v-for="(shellCoveCard,index) in shellCoveCards" :key="shellCoveCard" :index="index" :visibleSlideShellCove="visibleSlideShellCove">
           <img :src="shellCoveCard" id="shellCoveImgCards" class="projectImgCards"/>
