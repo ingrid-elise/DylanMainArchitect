@@ -20,37 +20,26 @@
           </p>
     </div>
 
-    <div class="contactForm"  @mouseover="showBorder = true" @mouseleave="showBorder = false" :class="{active:showBorder}">
-        <h2 id="contactFormTitle">book me</h2>
-        <form id="form" method="POST" class="form" action="https://formspree.io/f/mnqogdwd">
-        <!-- Form Name Input -->
-        <label for="name" class="label-name">
-            <span class="content-name">Your Name:</span>
-        </label>
-        <input name="name" type="text" required>
-        <div class="shortLineBelow"></div>
-
-        <!-- Form Email Input -->
-        <label for="email" class="label-name">
-            <span class="content-email">Your Email:</span>
-        </label>
-        <input name="email" type="email" required>
-        <div class="shortLineBelow"></div>
-
-        <!-- Form Message Input -->
-        <label for="message" class="label-name">
-            <span class="content-email">Message:</span>
-        </label>
-        <textarea name="message" rows="10"></textarea>
-        <div class="shortLineBelow"></div>
-
-        <!-- Form Submit Button -->
-        <div id="buttonDiv">
-        <button id="contactUsButton" type="submit" v-on:click="submit">SUBMIT</button>
-        </div>
-
-      </form>
-    </div>
+    <form name="contact" method="POST" data-netlify="true" netlify>
+  <p>
+    <label>Your Name: <input type="text" name="name" /></label>   
+  </p>
+  <p>
+    <label>Your Email: <input type="email" name="email" /></label>
+  </p>
+  <p>
+    <label>Your Role: <select name="role[]" multiple>
+      <option value="leader">Leader</option>
+      <option value="follower">Follower</option>
+    </select></label>
+  </p>
+  <p>
+    <label>Message: <textarea name="message"></textarea></label>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 
   </div>
    <div id="yellowArrowBox">
