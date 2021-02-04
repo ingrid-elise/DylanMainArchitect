@@ -2,6 +2,9 @@ import Vue from "vue";
 import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
+import ScrollAnimation from './directives/scrollanimation.js'; // i made this!
+
+Vue.directive('scrollanimation', ScrollAnimation); // registering the directive globally
 
 Vue.config.productionTip = false;
 

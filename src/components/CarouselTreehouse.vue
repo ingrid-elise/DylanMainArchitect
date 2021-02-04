@@ -1,5 +1,5 @@
 <template>
-  <div id="main-block">
+  <div id="main-block"> 
     <div id="card-and-desc-treehouse">
 
       <!-- Project Info Text -->
