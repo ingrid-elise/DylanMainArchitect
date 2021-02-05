@@ -20,15 +20,18 @@
           </p>
     </div>
 
-    <form name="contactform" data-netlify="true" action="POST">
-  <p>
-    <label>Your Name: <input type="text" name="name" /></label>   
+    <form @submit.prevent="handleSubmit" name="contactform" data-netlify="true" action="POST" netlify-honeypot="bot-field">
+  <p style="display: none;" class="hidden">
+    <label>Don't fill this out if you're human: <input name="botfield" /></label>   
   </p>
   <p>
-    <label>Your Email: <input type="email" name="email" /></label>
+    <label>Your Name: <input type="text" name="name" v-model="form.name" /></label>   
   </p>
   <p>
-    <label>Message: <textarea name="message"></textarea></label>
+    <label>Your Email: <input type="email" name="email" v-model="form.email" /></label>
+  </p>
+  <p>
+    <label>Message: <textarea name="message" v-model="form.message"></textarea></label>
   </p>
   <p>
     <button type="submit">Send</button>
@@ -52,16 +55,38 @@ export default {
     name: "WorkTogether",
     data(){
         return {
-            showBorder: false,            
+            showBorder: false,
+            form: {
+                name: '',
+                email: '',
+                message: ''
+            }          
         }
     },
     components: {
         Header3,
     },
     methods: {
-        submit(){
-            alert ("Your submission was sent")
+        encode(data){
+            return Object.keys(data)
+            .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+            .join('&')
+        },
+        handleSubmit(){
+            fetch('/', {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/x-www-urlencoded'
+                },
+                body: this.encode({
+                    'form-name': 'contact',
+                    ...this.form
+                })
+            })
+            .then(() => console.log('successfully sent'))
+            .catch(e => console.log(e))
         }
+
     },
 };
 </script>
