@@ -20,10 +20,16 @@
 #shortLine {
   width: 116px;
   height: 0px;
-  margin-left: 40vw;
+  margin-left: 41.5vw;
   border: 5px solid #000000;
+  margin-bottom: 3vh;
 }
 
+@media (max-width: 768px) {
+  #shortLine {
+  display: none;
+}
+}
 @media (max-width: 500px) {
 #projectsTitle {
   margin-left: 30px;

@@ -1,9 +1,8 @@
 <template>
-  <div class="main-block">
     <div id="card-and-desc">
 
       <div id="project-info">
-        <div id="description-1" class="projectDescription" v-if="hover">
+        <div class="projectDescription" v-if="hover">
           <hr />
           <div class="flexboxLine">
           <div class="projectDescHeading">
@@ -57,7 +56,6 @@
       </div>
 
     </div>
-  </div>
 </template>
 <script>
 export default {
@@ -79,39 +77,23 @@ export default {
 </script>
 
 <style>
-#main-block {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100vw;
-}
-#card-and-desc {
-  display: flex;
-  flex-direction: row;
-  float: right;
-  width: 100vw;
+#card-and-desc { /* everything */
+  display: grid;
+  grid-template-columns: 1.3fr 1.7fr;
+  width: auto;
   padding-bottom: 10vh; /* adds padding between projects */
+  box-sizing: border-box; /* ensures padding and border are included in the total width and height of the elements. */
 }
-.card-carousel {
+.card-carousel { /* carousel and button */
   display: flex;
   flex-direction: row;
-  margin-top: 3vh;
-  /* margin-left: 3vw; */
-  width: 58vw;   /* fixed the img resizing problem w this, gave the entire flex box a width so the img stays within this */
-  right: 0;
-  float: right;
+  width: 100%;
 }
 #project-info {
-  display: flex;
-  flex-direction: column;
   margin-left: 5vw;
-  width: 35vw; 
-  margin-right: 2vw;
-  padding-bottom: 0vh;
 }
-.projectName {
-  height: 32vh;
-  padding-top: 27.4vh; /* changed from 28 to bring text up */
+.projectName { 
+  height: 67vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -123,31 +105,26 @@ export default {
   height: 71vh;
   border-right: 1px solid black; 
   position: absolute;
-  margin-left: -2vw;
-  margin-top: -3vh;
+  margin-left: -1.8vw;
+  margin-top: -4vh;
 }
 .verticalLineHover { /* Short vertical line*/
   content: "";
   width: 0px;
-  height: 49.3vh;
+  height: 50.2vh;
   border-right: 1px solid black; 
   position: absolute;
-  margin-left: -2vw;
-  margin-top: -3vh;
+  margin-left: -1.8vw;
+  margin-top: -4vh;
 }
 hr { /* Line below project name and above project */
   border: 0;
   height: 1px;
   background-color: black;
-  margin-top: 1vh; /* added so could bring project address up / create more */
-}
-#address-1 {
-  margin-top: 10.5vh;
-  width: 35vw; 
+  width: 36.5vw; /* length of black line */
 }
 .projectDescription {
-  padding-top: 29vh;
-  width: 35vw;
+  padding-top: 46vh;
 }
 .flexboxLine{
   display: flex;
@@ -169,12 +146,6 @@ hr { /* Line below project name and above project */
   text-align: left;
   margin-left: 3vw; /* this was 6vw, changed so when screen is smaller */
 }
-.card-icon:hover + #description-1 {
-  display: block;
-}
-#description-1 {
-  margin-top: 19.2vh;  /* change this to adjust movement of treehouse carousel */
-}
 .card-icon:hover + #address-1 {
   display: none;
 }
@@ -182,10 +153,8 @@ button {
   background-color: black;
   color: white;
   border: none;
-  width: 5vw;
-}
-#blackButton {
-  height: 68vh;
+  width: 13rem;
+  overflow: hidden;
 }
 button:focus,
 button:hover {
@@ -193,27 +162,8 @@ button:hover {
   cursor: pointer;
 }
 
-@media (max-width: 1500px) { /* 19" Desktop */
-#blackButton {
-  height: 58vh;
-}
-#address-1 {
-  margin-top: 0.5vh;
-}
-.projectDescription {
-  padding-top: 21vh;
-  width: 35vw;
-}
-.verticalLine { /* Long vertical line*/
-  height: 61vh;
-}
-.verticalLineHover { /* Short vertical line*/
-  height: 41.3vh;
-}
-}
-
-@media (max-width: 1400px) { /* 15" Notebook */
-#blackButton {
+@media (max-width: 1200px) { /* Desktops, large screens */
+/* #blackButton {
   height: 64vh;
 }
 #address-1 {
@@ -221,17 +171,17 @@ button:hover {
 }
 .projectDescription {
   padding-top: 25vh;
-}
-.verticalLine { /* Long vertical line*/
+} */
+/* .verticalLine { 
   height: 67vh;
 }
-.verticalLineHover { /* Short vertical line*/
+.verticalLineHover { 
   height: 45.3vh;
-}
+} */
 }
 
-@media (max-width: 1300px) { /* 13" Notebook */
-#blackButton {
+@media (max-width: 1024px) { /* Small screens, laptops */
+/* #blackButton {
   height: 60vh;
 }
 #address-1 {
@@ -240,41 +190,90 @@ button:hover {
 .projectDescription {
   padding-top: 16vh;
 }
-.verticalLine { /* Long vertical line*/
+.verticalLine { 
   height: 63vh;
 }
-.verticalLineHover { /* Short vertical line*/
+.verticalLineHover { 
   height: 36.3vh;
-}
+} */
 }
 
-@media (max-width: 1100px) { /* 12" Netbook */
-#blackButton {
-  height: 48vh;
+@media (max-width: 768px) { /* iPads, Tablets */
+  .line {
+  display: none;
+}
+.verticalLine::after { 
+  display: none;
+}
+.projectName:after { 
+  display: none;
+}
+hr {
+  display: none;
+}
+  .card-carousel {
+  margin: 0;
+  width: 100vw;
+}
+#card-and-desc {
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 0;
+}
+#project-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5vw;
+  width: 90vw;
+}
+ .card-carousel #project-info {
+   clear: both;
+ }
+#address-1 {
+  margin-top: 0vh;
+  margin-bottom: 5vh;
 }
 .projectName {
-  height: 22.5vh;
-  padding-top: 28.4vh;
+  padding-top: 0vh;
+  height: 5vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  width: 100vw;
 }
-#address-1 {
-  margin-top: 0vh;
+button {
+  width: 13rem;
 }
 .projectDescription {
-  padding-top: 8vh;
-  font-size: 12px;
+  padding-top: 0vh;
+  margin-top: 0vh;
+  font-size: 14px;
+  width: 100vw;
 }
-.verticalLine { /* Long vertical line*/
-  height: 51vh;
+#description-1 {
+  margin-top: 1vh;
+  margin-bottom: 5vh;
 }
-.verticalLineHover { /* Short vertical line*/
-  height: 28.3vh;
+.linesMob {
+  display: flex;
+  flex-direction: column-reverse;
+}
+.longLineProjectNameMobile{
+  width: 85vw;
+  height: 0px;
+  margin-left: 0vw;
+  border-bottom: 1px solid black;
+  padding-top: 5px; /* adds space between line and project title - how much? */
+}
+.shortLineProjectNameMobile{
+  width: 15vw;
+  height: 0px;
+  margin-left: 0vw;
+  border-bottom: 5px solid black;
 }
 }
 
-@media (max-width: 500px) { /* Mobile */
+@media (max-width: 480px) { /* Mobile */
   .line {
   display: none;
 }

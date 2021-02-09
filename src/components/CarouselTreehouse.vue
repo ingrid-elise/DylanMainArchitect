@@ -4,9 +4,7 @@
 
       <!-- Project Info Text -->
       <div id="project-info">
-         <!-- <div class="verticalLine" v-if="hover"></div>  -->
         <div id="description-1" class="projectDescription" v-if="hover">
-          <!-- <div class="line"></div> -->
           <hr />
           <div class="flexboxLine">
           <div class="projectDescHeading">
@@ -81,11 +79,31 @@ export default {
 
 <style>
 #card-and-desc-treehouse {
-  display: flex;
-  flex-direction: row;
-  width: 100vw;
-  float: right;
+  display: grid;
+  grid-template-columns: 1.3fr 1.7fr;
+  width: auto;
   padding-bottom: 10vh; /* adds padding between projects */
+  box-sizing: border-box; /* ensures padding and border are included in the total width and height of the elements. */
+}
+
+@media (max-width: 768px) { /* iPads, Tablets */
+  .line-treehouse {
+  display: none;
+}
+.verticalLine-treehouse::after {
+  display: none;
+}
+.projectName-treehouse:after { 
+  display: none;
+}
+#address-1-treehouse {
+  margin-top: 0vh;
+  margin-bottom: 5vh;
+}
+#card-and-desc-treehouse {
+  display: flex;
+  flex-direction: column-reverse;
+}
 }
 
 @media (max-width: 500px) { /* Mobile */

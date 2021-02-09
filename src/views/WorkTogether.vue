@@ -53,8 +53,8 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     color: black;
-    padding-top: 20vh;
-    margin-left: 6vw;
+    padding-top: 25vh;
+    margin-left: 5vw;
 }
 .contactUsHeading {
     text-align: left;
@@ -75,23 +75,24 @@ export default {
   position: absolute;
   width: 50vw;
   height: 0px;
-  left: 6vw;
+  left: 5vw;
   border-bottom: 1px solid black;
 }
 .shortTopLine {
   position: absolute;
   width: 100px;
   height: 0px;
-  left: 6vw;
+  left: 5vw;
   border: 5px solid black;
 }
 #yellowBackButton {
   width: 3vw; /* width of arrow img */
-  margin-top: 5vh;
+  margin-top: -5vh;
+  z-index: 9999;
+  position: absolute;
 }
 #pulseLeftArrow {
   position: absolute;
-  z-index: 9999;
   margin-left: 5vw; 
   width: 35px; 
   height: 35px;

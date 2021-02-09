@@ -148,8 +148,8 @@ export default {
   display: inline-block;
 }
 .projectImgCards {
-  height: 68vh; /* changes height of project carousel img's */
-  width: auto;
+    width: 100%;
+    height: 100%;
 }
 .before-enter {
   opacity: 0;
@@ -160,35 +160,28 @@ export default {
   opacity: 1;
   transform: translateY(0px);
 }
-@media (max-width: 1500px) { /* 19" Desktop */
-.projectImgCards {
-  height: 58vh;
-  width: auto;
-}
-}
 
-@media (max-width: 1400px) { /* 15" Notebook */
-.projectImgCards {
+@media (max-width: 1200px) { /* Desktops, large screens */
+/* .projectImgCards {
   height: 64vh;
   width: auto;
-}
+} */
 }
 
-@media (max-width: 1300px) { /* 13" Notebook */
-.projectImgCards {
+@media (max-width: 1024px) { /* Small screens, laptops */
+/* .projectImgCards {
   height: 60vh;
   width: auto;
+} */
+}
+
+@media (max-width: 768px) { /* iPads, Tablets */
+#shortLine2 {
+  display: none;
 }
 }
 
-@media (max-width: 1100px) { /* 12" Netbook */
-.projectImgCards {
-  height: 48vh;
-  width: auto;
-}
-}
-
-@media (max-width: 500px) { /* Mobile */
+@media (max-width: 480px) { /* Mobile */
 .projectImgCards {
   height: 30vh;
   width: auto;
@@ -196,9 +189,6 @@ export default {
 }
 #shortLine2 {
   display: none;
-}
-.projectBlock {
-  padding: 1rem 0rem;
 }
 }
 

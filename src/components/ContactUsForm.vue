@@ -1,5 +1,6 @@
 <template>
-  <div class="contactUsFormContainer" @mouseover="showBorder = true" @mouseleave="showBorder = false" :class="{active:showBorder}">
+<div>
+  <div v-if="!show" class="contactUsFormContainer" @mouseover="showBorder = true" @mouseleave="showBorder = false" :class="{active:showBorder}">
     <h2 id="contactFormTitle">book me</h2>
     <form @submit.prevent="sendEmail">
       <label id="nameLabel"></label>
@@ -7,6 +8,9 @@
       <div class="shortLineBelow"></div>
       <label></label>
       <input type="email" v-model="email" name="email" placeholder="Email" />
+      <div class="shortLineBelow"></div>
+      <label></label>
+      <input type="number" v-model="number" name="number" placeholder="Phone Number" />
       <div class="shortLineBelow"></div>
       <label></label>
       <textarea
@@ -20,10 +24,19 @@
       </textarea>
       <div class="shortLineBelow"></div>
       <div id="buttonDiv">
-        <input type="submit" value="Send" id="contactUsButton" />
+        <input type="submit" value="Send" id="contactUsButton" v-on:click="fade"/>
       </div>
+      
     </form>
+
+    
   </div>
+  <transition name="fadeOut" v-on:enter="enter">
+  <div id="messageSentText" v-if="show">
+      <p>Your message has been sent. Yay!</p>
+        </div>
+        </transition>
+        </div>
 </template>
 
 <script>
@@ -36,7 +49,9 @@ export default {
       name: "",
       email: "",
       message: "",
+      number: "",
       showBorder: false,
+      show: false,
     };
   },
   methods: {
@@ -51,6 +66,7 @@ export default {
             name: this.name,
             email: this.email,
             message: this.message,
+            number: this.number,
           }
         );
         console.log("it works!");
@@ -61,7 +77,18 @@ export default {
       this.name = "";
       this.email = "";
       this.message = "";
+      this.number = "";
     },
+    fade() {
+        // alert('sent yay')
+        this.show = !this.show
+    },
+    enter(el, done) {
+        var that = this;
+        setTimeout(function(){
+            that.show = false;
+        }, 5000); 
+    }
   },
 };
 </script>
@@ -84,7 +111,7 @@ export default {
   padding-bottom: 5vh;
 }
 .contactUsFormContainer {
-  margin-right: 6vw;
+  margin-right: 5vw;
   border-style: solid;
   border-width: 1px;
   padding: 30px;
@@ -98,6 +125,10 @@ export default {
   text-align: left;
   padding: 10px;
   margin-top: 3vh;
+}
+#messageLabelSpaceAbove {
+  margin-top: 62px;
+
 }
 input,
 textarea {
@@ -115,14 +146,19 @@ textarea {
 }
 textarea#styled {
     font-family: HelveticaNeue;
+    /* margin-top: 50px; */
 }
 .shortLineBelow {
   width: 100px;
   height: 0px;
-  border: 5px solid #000000;
+  border: 4px solid #000000;
 }
-input:focus,
-textarea:focus {
+input:focus, textarea:focus {
+  border-color: #ffab48;
+}
+
+input:focus + .shortLineBelow,
+textarea:focus + .shortLineBelow {
   border-color: #ffab48;
 }
 #nameLabel {
@@ -136,23 +172,35 @@ textarea:focus {
 }
 #contactUsButton {
   width: 10vw;
-  padding: 10px 45px;
-  border: none;
+  padding: 9px 44px;
+  border: 1px solid black;
   cursor: pointer;
   margin-top: 62px;
-  background-color: black;
-  color: white;
-}
-#contactUsButton:hover {
   background-color: white;
   color: black;
-  border: 1px solid black;
-  padding: 9px 44px;
+  font-weight: bolder;
+}
+#contactUsButton:hover {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 45px;
 }
 #buttonDiv {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#messageSentText {
+  margin-right: 5vw;
+  font-size: 1.5rem;
+  text-align: center;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffab48;
+  padding: 31vh 0vw;
+  width: 35vw;
 }
 
 @media (max-width: 500px){
