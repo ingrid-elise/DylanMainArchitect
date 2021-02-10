@@ -77,8 +77,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  margin-top: 22px; /* changed from 30px */
-  padding-left: 5vw;/* changed from margin */
+  margin-top: 22px; 
+  padding-left: 5vw;
 }
 #mainTitle {
   color: black;
